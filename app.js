@@ -51,9 +51,9 @@ app.get('/getThumbnails', function(req, res) {
 });
 
 
-app.get('/thumbnails/from/:start/to/:finish', function(req, res) {
-	var start = req.params.start;
-	var finish = req.params.finish;
+app.get('/thumbnailsBetween/start/:someStartTime/end/:someEndTime', function(req, res) {
+	var start = req.params.someStartTime;
+	var finish = req.params.someEndTime;
 
 	var getData = function (start, finish) {
 		db.query('SELECT * FROM data WHERE offset >= ? AND offset <= ?', [start, finish], function (err, rows) {
